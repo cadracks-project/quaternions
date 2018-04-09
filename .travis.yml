@@ -1,0 +1,16 @@
+sudo: required
+
+git:
+  depth: 3
+
+services:
+  - docker
+
+install:
+  - docker build --tag guillaume-florent/quaternions:latest .
+
+script:
+  - docker run --name quaternions guillaume-florent/quaternions:latest /bin/bash -c "cd /opt/quaternions;pytest tests/"
+
+after_script:
+  - docker images
