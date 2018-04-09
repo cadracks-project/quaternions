@@ -8,21 +8,21 @@ import numpy as np
 class DualNumber(object):
     """ Class which implements dual numbers
 
-        x = r + e d with e**2 = 0 
+        x = r + e d with e**2 = 0
 
-        x1 + x2 = r1 + r2 + e ( d1 + d2) 
-        x1 - x2 = r1 - r2 + e ( d1 - d2) 
+        x1 + x2 = r1 + r2 + e ( d1 + d2)
+        x1 - x2 = r1 - r2 + e ( d1 - d2)
         x1 * x2 = (r1 * r2) + e ( r1 * d2 + d1 * r2 )
         conj(x) = r - e d
-        1/x = 1/r  - e d/r**2 
+        1/x = 1/r  - e d/r**2
+
+    Parameters
+    ----------
+    r : real part
+    d : dual part
 
     """
     def __init__(self, r, d):
-        """
-        r : real part 
-        d : dual part 
-
-        """
         self.r = r
         self.d = d
         self.shape = np.shape(self.r)

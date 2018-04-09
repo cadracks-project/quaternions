@@ -8,7 +8,7 @@ import copy
 
 class Quaternion(object):
     r"""Quaternion class
-    
+
     Parameters
     ----------
     a : np.array (Nx4) dtype=complex
@@ -19,7 +19,8 @@ class Quaternion(object):
         """
 
         """
-        if type(a) != np.ndarray:
+        # if type(a) != np.ndarray:
+        if not isinstance(a, np.ndarray):
             self.a = np.array([a])[:, None].astype(complex)
             self.b = np.array([b])[:, None].astype(complex)
         else:
@@ -136,9 +137,7 @@ class Quaternion(object):
         return Quaternion(a, b)
 
     def exp(self):
-        """ exponential of a quaternion 
-        """
-
+        """ exponential of a quaternion"""
         ea = np.exp(self.a.real)
         v = self.vect()
         if len(v.shape) > 1:
@@ -157,7 +156,7 @@ class Quaternion(object):
 
     def __pow__(self, n):
         r = 1
-        for i in range(n):
+        for _ in range(n):
             r *= self
         return r
 
@@ -165,7 +164,7 @@ class Quaternion(object):
 class QPoint(Quaternion):
     """ Quaternion point
 
-    The scalar part is 0 
+    The scalar part is 0
 
     """
     def __init__(self, pt):

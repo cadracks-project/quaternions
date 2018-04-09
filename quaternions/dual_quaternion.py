@@ -26,10 +26,10 @@ class DualQuaternion(object):
         Parameters
         ----------
 
-        qr : Quaternion 
-            real part 
+        qr : Quaternion
+            real part
         qd : Quaternion
-            dual part 
+            dual part
 
         """
         # assert(qr.shape==qd.shape), "%r , %r   " % (qr.shape,qd.shape)
@@ -85,7 +85,7 @@ class DualQuaternion(object):
         self.qd[key] = val.qd
 
     def conj1(self):
-        """Quaternion conjugaison 
+        """Quaternion conjugaison
 
             (Q1 Q2)* = Q2*Q1*
 
@@ -98,7 +98,7 @@ class DualQuaternion(object):
 
     def conj3(self):
         """Quaternion Dual conjugaison
-        ( conjugaison used for chaining displacement ) 
+        ( conjugaison used for chaining displacement )
 
             dis * dqp * dis.conj3
 
@@ -115,10 +115,10 @@ class DualQuaternion(object):
 
 
 class DQPoint(DualQuaternion):
-    """ Dual quaternion point 
+    """ Dual quaternion point
 
-    The real part is unitary purely scalar quaternion 
-    The dual part is a QPoint 
+    The real part is unitary purely scalar quaternion
+    The dual part is a QPoint
 
     """
     def __init__(self, pt):
